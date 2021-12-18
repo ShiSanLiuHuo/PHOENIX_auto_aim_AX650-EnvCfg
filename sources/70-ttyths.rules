@@ -1,0 +1,1 @@
+KERNEL=="ttyTHS[0-9]*",MODE="0777"
