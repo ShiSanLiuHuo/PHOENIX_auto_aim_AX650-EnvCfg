@@ -1,3 +1,5 @@
+sudo jetson_clock
+
 #change apt source
 echo "Adding apt source, Enter s to skip, Enter any other key to continue"
 read skip
@@ -8,6 +10,26 @@ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 sudo cp ./sources/sources.list /etc/apt/sources.list
 sudo apt-get update
 echo "apt source change complete"
+fi
+
+#install pip3
+echo "Installing pip3, Enter s to skip, Enter any other key to continue"
+read skip
+if [ ${skip} == 's' ]; then
+echo "pip3 installation skipped"
+else
+sudo apt-get install -y python3-pip
+echo "pip3 installation complete"
+fi
+
+#install jtop
+echo "Installing jtop, Enter s to skip, Enter any other key to continue"
+read skip
+if [ ${skip} == 's' ]; then
+echo "jtop installation skipped"
+else
+sudo -H pip3 install -U jetson-stats
+echo "jtop installation complete"
 fi
 
 #install gcc-8/gcc-9
@@ -80,10 +102,10 @@ echo "OpenCV installation skipped"
 else
 sudo apt-get install -y libgtk2.0-dev libgtk3.0-dev
 sudo apt-get install -y libavcodec-dev libavformat-dev
-sudo apt-get install -y libswscale-dev libv4l-dev
+sudo apt-get install -y libswscale-dev libv4l-dev libtff5-dev
 sudo apt-get install -y libv4l-dev libxvidcore-dev libx264-dev
 sudo apt-get install -y libatlas-base-dev gfortran libgtk2.0-dev 
-sudo apt-get install -y libjpeg-dev libpng-dev
+sudo apt-get install -y libjpeg-dev libpng-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 echo "OpenCV supporting libs installation complete"
 echo "Please manually install OPENCV 4.1.1"
 fi
