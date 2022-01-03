@@ -89,10 +89,33 @@ else
 cd sources
 wget https://hub.fastgit.org/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-aarch64.tar.gz
 tar -xzf cmake-3.22.1-linux-aarch64.tar.gz
-sudo cp sources/cmake-3.22.1-linux-aarch64 /opt/cmake-3.22
+sudo mv cmake-3.22.1-linux-aarch64 /opt/cmake-3.22
 sudo ln -sf /opt/cmake-3.22/bin/* /usr/bin/
 cd ..
 echo "CMake-3.22 installation complete"
+
+#install ceres
+echo "Installing ceres, Enter s to skip, Enter any other key to continue"
+read skip
+if [ ${skip} == 's' ]; then
+echo "ceres installation skipped"
+else
+cd sources
+wget https://hub.fastgit.org/ceres-solver/ceres-solver/archive/refs/tags/2.0.0.tar.gz
+tar -xzf ceres-solver-2.0.0.tar.gz
+cd ceres-solver-2.0.0
+mkdir build
+cd build
+cmake .. -DMINIGLOG=TRUE
+make -j6
+sudo make install
+#To ceres
+cd ..
+#To source
+cd ..
+#To origin
+cd ..
+fi
 
 #install opencv
 echo "Installing OpenCV, Enter s to skip, Enter any other key to continue"
@@ -109,3 +132,4 @@ sudo apt-get install -y libjpeg-dev libpng-dev libgstreamer1.0-dev libgstreamer-
 echo "OpenCV supporting libs installation complete"
 echo "Please manually install OPENCV 4.1.1"
 fi
+
