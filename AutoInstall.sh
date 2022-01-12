@@ -76,6 +76,8 @@ sudo make install
 cd ..
 rm -rf libserial
 sudo cp ./sources/70-ttyths.rules /etc/udev/rules.d/70-ttyths.rules
+echo "export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
+source ~.bashrc
 echo "serial libs installation complete"
 echo "Please reboot and check status of ttyTHS1 after whole installation complete"
 fi
@@ -93,6 +95,7 @@ sudo mv cmake-3.22.1-linux-aarch64 /opt/cmake-3.22
 sudo ln -sf /opt/cmake-3.22/bin/* /usr/bin/
 cd ..
 echo "CMake-3.22 installation complete"
+fi
 
 #install ceres
 echo "Installing ceres, Enter s to skip, Enter any other key to continue"
@@ -102,7 +105,7 @@ echo "ceres installation skipped"
 else
 cd sources
 wget https://hub.fastgit.org/ceres-solver/ceres-solver/archive/refs/tags/2.0.0.tar.gz
-tar -xzf ceres-solver-2.0.0.tar.gz
+tar -xzf 2.0.0.tar.gz
 cd ceres-solver-2.0.0
 mkdir build
 cd build
@@ -111,8 +114,8 @@ make -j6
 sudo make install
 #To ceres
 cd ..
-#To source
 cd ..
+#To source
 #To origin
 cd ..
 fi
@@ -132,4 +135,3 @@ sudo apt-get install -y libjpeg-dev libpng-dev libgstreamer1.0-dev libgstreamer-
 echo "OpenCV supporting libs installation complete"
 echo "Please manually install OPENCV 4.1.1"
 fi
-
