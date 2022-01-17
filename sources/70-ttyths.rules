@@ -1,1 +1,2 @@
 KERNEL=="ttyTHS[0-9]*",MODE="0777"
+KERNEL=="ttyUSB[0-9]*",MODE="0777"
