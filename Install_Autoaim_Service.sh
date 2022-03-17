@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo chmod a+xrw /home/nvidianx/auto-aim/bash/*.sh
-sudo cp ./source/auto-aim.service /lib/systemd/system/auto-aim.service
+sudo cp ./sources/auto-aim.service /lib/systemd/system/auto-aim.service
 sudo systemctl daemon-reload
 
 echo 'alias autoaim-enable="sudo systemctl enable auto-aim.service"' >> ~/.bashrc
