@@ -6,5 +6,5 @@ sudo systemctl daemon-reload
 echo 'alias autoaim-enable="sudo systemctl enable auto-aim.service"' >> ~/.bashrc
 echo 'alias autoaim-disable="sudo systemctl disable auto-aim.service"' >> ~/.bashrc
 echo 'alias autoaim-stop="sudo systemctl stop auto-aim.service"' >> ~/.bashrc
-echo 'alias autoaim-help=/home/nvidianx/auto-aim/.auto-aim-help.sh' >> ~/.bashrc
-source ~/.bashrc
+echo 'alias autoaim-help=/home/nvidianx/auto-aim/bash/auto-aim-help.sh' >> ~/.bashrc
+runuser -l nvidianx -c "source ~/.bashrc"
