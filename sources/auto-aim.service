@@ -1,0 +1,14 @@
+[Unit]
+Description=auto-aim service
+ 
+[Service]
+Type=forking
+ 
+ExecStart=/home/nvidianx/auto-aim/bash/auto-aim-start
+ExecReload=/home/nvidianx/auto-aim/bash/auto-aim-restart
+ExecStop=/home/nvidianx/auto-aim/bash/auto-aim-stop
+PrivateTmp=true
+ 
+[Install]
+WantedBy=multi-user.target
+Alias=auto-aim.service
