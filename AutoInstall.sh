@@ -1,4 +1,4 @@
-sudo jetson_clock
+sudo jetson_clocks
 
 #change apt source
 echo 'Adding apt source, Enter s to skip, Enter any other key to continue'
@@ -89,7 +89,7 @@ if [ ${skip} == 's' ]; then
 echo 'CMake-3.22 installation skipped'
 else
 cd sources
-wget https://hub.fastgit.org/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-aarch64.tar.gz
+wget https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-aarch64.tar.gz
 tar -xzf cmake-3.22.1-linux-aarch64.tar.gz
 sudo mv cmake-3.22.1-linux-aarch64 /opt/cmake-3.22
 sudo ln -sf /opt/cmake-3.22/bin/* /usr/bin/
@@ -104,7 +104,7 @@ if [ ${skip} == 's' ]; then
 echo 'ceres installation skipped'
 else
 cd sources
-wget https://hub.fastgit.org/ceres-solver/ceres-solver/archive/refs/tags/2.0.0.tar.gz
+wget https://github.com/ceres-solver/ceres-solver/archive/refs/tags/2.0.0.tar.gz
 tar -xzf 2.0.0.tar.gz
 cd ceres-solver-2.0.0
 mkdir build
