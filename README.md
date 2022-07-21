@@ -1,5 +1,12 @@
 # Nvidia-NX Environment Auto Config
 ## This Project implies auto config shell to auto config Nvida-NX.
+## Pre-Config Operations
+Download and install BalenaEther form https://www.balena.io/etcher/ or http://cloud.rmshtech.tk/share/JjL4JT-B
+
+Download JetPack 4.6 Image from nvidia or http://cloud.rmshtech.tk/share/xBxSG_18
+
+Flash the Image into TF Card.
+
 ## List of sections and packages
 * apt source:
   <br> This section will change the source of apt to ***TsingHua Mirror***
