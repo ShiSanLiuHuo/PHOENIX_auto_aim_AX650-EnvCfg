@@ -8,6 +8,7 @@ echo 'apt source changing skipped'
 else
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 sudo cp ./sources/sources.list /etc/apt/sources.list
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 sudo apt-get update
 echo 'apt source change complete'
 fi
