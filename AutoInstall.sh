@@ -20,6 +20,7 @@ if [ ${skip} == 's' ]; then
 echo 'pip3 installation skipped'
 else
 sudo apt-get install -y python3-pip
+pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 echo 'pip3 installation complete'
 fi
 
@@ -69,7 +70,7 @@ if [ ${skip} == 's' ]; then
 echo 'serial libs installation skipped'
 else
 sudo apt-get install -y catkin
-git clone http://gitlab.rmshtech.tk/hegq/libserial.git
+git clone http://gitlab.rmshtech.com/hegq/libserial.git
 cd libserial
 cmake . -DCMAKE_INSTALL_PREFIX=/usr/local
 make -j
