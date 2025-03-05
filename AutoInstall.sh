@@ -36,19 +36,6 @@ else
     echo 'MVS installation complete'
 fi
 
-#install libserial
-echo 'Installing Eigen3 and Serial. Enter s to skip, Enter any other key to continue'
-read skip
-if [ ${skip} == 's' ]; then
-    echo 'serial libs installation skipped'
-else
-    sudo apt-get install -y libeigen3-dev libboost-dev
-    sudo cp ./sources/70-ttyths.rules /etc/udev/rules.d/70-ttyths.rules
-    echo 'export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
-    echo 'serial libs installation complete'
-    echo 'Please reboot and check status of ttyTHS1 after whole installation complete'
-fi
-
 #install cmake-3.22
 echo 'Installing CMake-3.22, Enter s to skip, Enter any other key to continue'
 read skip
@@ -62,6 +49,33 @@ else
     sudo ln -sf /opt/cmake-3.22/bin/* /usr/bin/
     cd ..
     echo 'CMake-3.22 installation complete'
+fi
+
+#install libserial
+echo 'Installing Eigen3 and Serial. Enter s to skip, Enter any other key to continue'
+read skip
+if [ ${skip} == 's' ]; then
+    echo 'serial libs installation skipped'
+else
+    sudo apt-get install -y libeigen3-dev libboost-dev
+    cd sources
+    wget https://gitlab.rmshtech.com/computer-vision/tools/rmcv_serial/-/archive/V1.1.1/rmcv_serial-V1.1.1.tar
+    tar -xf rmcv_serial-V1.1.1.tar
+    rm rmcv_serial-V1.1.1.tar
+    cd rmcv_serial-V1.1.1
+    mkdir build
+    cd build
+    cmake ..
+    make -j
+    sudo make install
+    cd ../..
+    rm -rf rmcv_serial-V1.1.1
+    cd ..
+    
+    sudo cp ./sources/70-ttyths.rules /etc/udev/rules.d/70-ttyths.rules
+    echo 'export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+    echo 'serial libs installation complete'
+    echo 'Please reboot and check status of ttyTHS1 after whole installation complete'
 fi
 
 #install ceres
