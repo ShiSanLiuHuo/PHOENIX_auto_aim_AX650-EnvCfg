@@ -1,5 +1,6 @@
 apt update
 apt install -y gcc g++ cmake libboost-dev libopencv-dev libeigen3-dev
+tar -xvf sources/axcl_inc.tar -C /soc
 
 #install MVS
 echo 'Installing MVS, Enter s to skip, Enter any other key to continue'
