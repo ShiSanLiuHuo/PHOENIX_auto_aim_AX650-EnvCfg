@@ -40,7 +40,7 @@ else
 fi
 
 #install auto-aim
-echo 'Installing RMCVSerial. Enter s to skip, Enter any other key to continue'
+echo 'Installing autoaim. Enter s to skip, Enter any other key to continue'
 read skip
 if [ ${skip} == 's' ]; then
     echo 'auto-aim installation skipped'
