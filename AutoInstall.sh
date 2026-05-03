@@ -47,7 +47,7 @@ if [ ${skip} == 's' ]; then
 else
     cd ~
     echo "deploying account username:cvdeployer password:robomaster"
-    git clone http://gitlab.rmshtech.com/computer-vision/auto-aim
+    git clone https://github.com/Astra-Whale/SHtech_auto_aim
     cd auto-aim
     mkdir build
     cd build
