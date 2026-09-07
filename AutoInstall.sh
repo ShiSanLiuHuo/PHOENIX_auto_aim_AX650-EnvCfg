@@ -46,8 +46,7 @@ if [ ${skip} == 's' ]; then
     echo 'auto-aim installation skipped'
 else
     cd ~
-    echo "deploying account username:cvdeployer password:robomaster"
-    git clone https://github.com/Astra-Whale/SHtech_auto_aim
+    git clone https://github.com/Astra-Whale/SHtech_auto_aim.git auto-aim
     cd auto-aim
     mkdir build
     cd build
